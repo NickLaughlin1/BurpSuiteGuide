@@ -79,7 +79,7 @@ The Target tab allows you access three different tabs: Site map, Scope, and Issu
   * The Scope allows you to filter what Burp will/will not capture from your traffic
   * For example, here I am specifying that I only want to see traffic coming from https://www.techsmith.com and nothing else. I could do the opposite and block all traffic from just https://www.techsmith.com if I move the entry to the "Exclude from Scope" section <br />
    ![scopeexample](https://user-images.githubusercontent.com/40414269/121574336-27b04a00-c9f4-11eb-9f41-0cd892d82108.png)
-  * For more information regarding Scope: https://portswigger.net/burp/documentation/desktop/tools/target/scope
+  * For more information regarding Scope visit: https://portswigger.net/burp/documentation/desktop/tools/target/scope
 - Issue Definitions
   * This tab lists the definitions of all issues that can be detected by Burp Scanner
  
@@ -105,7 +105,7 @@ The Target tab allows you access three different tabs: Site map, Scope, and Issu
   * This tab works similarly to HTTP History
 - Options
   * This tab allows you change the Proxy and Intercept settings
-  * For more detailed look at the options tab: https://portswigger.net/burp/documentation/desktop/tools/proxy/options
+  * For more information on the options tab visit: https://portswigger.net/burp/documentation/desktop/tools/proxy/options
 
 ### Intruder
 Burp defines the Intruder tool as a means "for automating customized attacks agains web applications. It is extremely powerful and configurable, and can be sued to perform a huge range of tasks, from simple brute-force guessing of web directories through to active exploitation of complex blind SQL injection vulnerabilities." There are many type of attacks that you can perform and ways to customize those attacks. This is a quick example of how you could potentially use the Intruder tool:
@@ -120,4 +120,16 @@ Burp defines the Intruder tool as a means "for automating customized attacks aga
   For this example we are going to send a payload that includes numbers 1-4 and doesn't skip any of the numbers (step = 1). If step = 2 then the payload would be: 1,3 because it does every other number (and if step = 3 then payload would be 1,4)
 - (Optional) You can add payload processing that will added to the payload before it is used. This could be encoding/decoding the payload entries, hash them, adding prefix/suffix, reverse entry, etc.
 - (Optional) You can add Payload URL-encoding to certain characters defined in this section
+- For more information on the Intruder visit: https://portswigger.net/burp/documentation/desktop/tools/intruder
 
+### Repeater
+Burp defines the Repeater as "a simple tool for manually manipulating and reissuing individual HTTP and WebSocket messages, and analyzing the application's responses." You can use the Repeater to change parameter values, change HTTP request type, test logic flaws by issuing requests in a specific sequence, etc. <br />
+Once you are done making changes to the request you can send it and see the response <br />
+![repeater](https://user-images.githubusercontent.com/40414269/121582035-88438500-c9fc-11eb-8939-09011393f53d.png) <br />
+- For more information on the Repeater visit: https://portswigger.net/burp/documentation/desktop/tools/repeater
+
+### Decoder
+The Decoder does exactly what you would think it does: decodes passed in values. It also has the ability to encode and/or hash the value passed in a variety of different ways. <br />
+For example, here is a a value that is getting base64 encoded and then decoded to give the original value <br />
+![decoder](https://user-images.githubusercontent.com/40414269/121582745-5da5fc00-c9fd-11eb-948c-59f30b922392.png) <br />
+For more information on the decoder visit: https://portswigger.net/burp/documentation/desktop/tools/decoder
