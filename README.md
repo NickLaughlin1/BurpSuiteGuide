@@ -10,6 +10,11 @@ This is a demo on getting Burp Suite set up on your local machine
   3. At the bottom of the dialog, you will see a message saying that the Burp Suite installer was blocked. Next to it, click "Open anyway"
   4. The initial error message will pop up agian, but this time you have the option to click "Open" to run the installer despite the warning
 
+## Starting Burp
+- After running the installation wizard open "Burp Suite Community Edition"
+- When Burp opens you can select to open a temporary project, create a new projec that will save on the disk, or open up an existing project. For now we are going to open up a temporary project
+- On the next screen it will ask if you want to load the Burp default settings, the settingns from the project being opened, or load your own configuration file. We are just going to select Burp defaults
+
 ## Configuring Proxy Settings For Browser
 ### FireFox w/ FoxyProxy (Probably the easiest set up)
 - Download FoxyProxy here: https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/
@@ -31,6 +36,4 @@ This is a demo on getting Burp Suite set up on your local machine
 - I am not going to detail how to set up Chrome since you have to use Internet Explorer to download Burp Suites Certificate to browse HTTPS sites
 - I'm also not going to detail how to set up Safari as I cannot fully test it to make sure everything works properly
 - If you wan't to use Chrome or Safari check out this resource: https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/browser
-
-
 
