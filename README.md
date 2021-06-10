@@ -14,6 +14,11 @@ This is a demo on getting Burp Suite set up on your local machine
 - After running the installation wizard open "Burp Suite Community Edition"
 - When Burp opens you can select to open a temporary project, create a new projec that will save on the disk, or open up an existing project. For now we are going to open up a temporary project
 - On the next screen it will ask if you want to load the Burp default settings, the settingns from the project being opened, or load your own configuration file. We are just going to select Burp defaults
+### Checking default Proxy Settings
+- When the Burp project opens click on the "Proxy" > "Options" and confirm that the Proxy Listener that is active is: 127.0.0.1:8080
+![proxyoptions](https://user-images.githubusercontent.com/40414269/121556975-59201a00-c9e2-11eb-9252-5e7d39808282.gif) <br />
+- While still under the "Proxy" tab select "Intercept" and click "Intercept is on" to turn the intercept off
+![turninterceptoff](https://user-images.githubusercontent.com/40414269/121557413-bae08400-c9e2-11eb-8a63-c64b22d9ce21.png)
 
 ## Configuring Proxy Settings For Browser
 ### FireFox w/ FoxyProxy (Probably the easiest set up)
@@ -37,3 +42,7 @@ This is a demo on getting Burp Suite set up on your local machine
 - I'm also not going to detail how to set up Safari as I cannot fully test it to make sure everything works properly
 - If you wan't to use Chrome or Safari check out this resource: https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/browser
 
+## Install the CA Certificate for Corresponding Browser
+Now that a proxy is set up in your browser, you will need to install Burp's CA certificate to capture HTTPS traffic through Burp.
+### Installation Process if using FireFox
+- Now that a proxy is on via FoxyProxy and you have your Burp project up and running with Intercept off, visit this link in FireFox: http://burpsuite
