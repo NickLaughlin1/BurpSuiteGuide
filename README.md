@@ -46,3 +46,78 @@ This is a demo on getting Burp Suite set up on your local machine
 Now that a proxy is set up in your browser, you will need to install Burp's CA certificate to capture HTTPS traffic through Burp.
 ### Installation Process if using FireFox
 - Now that a proxy is on via FoxyProxy and you have your Burp project up and running with Intercept off, visit this link in FireFox: http://burpsuite
+- Once there, click the CA Certificate in the top right corner to download (take note where this is saved)
+![CAcert](https://user-images.githubusercontent.com/40414269/121567198-4ca0bf00-c9ec-11eb-9aa9-9d51a7aca9e4.png)
+- Open up FireFox preferences by clicking the burger menu > "Preferences" (or "Settings")
+- Open the "Privacy and Security" settings found on the left side and scroll down until you see the "Certificates" section
+- Once there click on "View Certificates" > "Import" and select the Burp CA certificate that you downloaded earlier
+![import](https://user-images.githubusercontent.com/40414269/121567705-e5373f00-c9ec-11eb-9d50-be3bca978592.png)
+mport"
+- When prompted, make sure to check "This certificate can identify websites" is selected and click "OK"
+- Now close and restart FireFox and you should now start to see your traffic being recorded through Burp under the "Proxy" tab > "HTTP History"
+
+### Installation Process for Other Browsers
+- You can find the steps to install the CA Certificate for other browsers here: https://portswigger.net/burp/documentation/desktop/getting-started/proxy-setup/certificate
+
+## Burp Features
+Now that we have Burp installed and your browser set up we can start looking at some of the features that Burp offers. While Burp offers many useful tools/features, in this demo we are going briefly explain these five:
+  * Target
+  * Proxy
+  * Intruder
+  * Repeater
+  * Decoder <br />
+
+For a more in depth explanation of these five (and many more) tools: https://portswigger.net/burp/documentation/desktop/tools
+### Target
+The Target tab allows you access three different tabs: Site map, Scope, and Issue Definitions. <br /> Here is a brief description of each tab: 
+- Site map
+  * From Burps website "The left-hand-side tree view contains a hierarchical representation of content, with URLs broken down into domains, directories, files, and parameterized requests. You can expand interesting branches to see further detail. If you select one or more parts of the tree, the relevant details about all the selected items and items in child branches are shown in the right-hand-side view."
+  * ![sitemapleft](https://user-images.githubusercontent.com/40414269/121573175-ef5c3c00-c9f2-11eb-840f-ff946be3fc6c.png)
+  * The tree view icons also provide a visual indication of the most significant security issue that has been identified within each branch
+  * For more on Site Map: https://portswigger.net/burp/documentation/desktop/tools/target/site-map
+- Scope
+  * The Scope allows you to filter what Burp will/will not capture from your traffic
+  * For example, here I am specifying that I only want to see traffic coming from https://www.techsmith.com and nothing else. I could do the opposite and block all traffic from just https://www.techsmith.com if I move the entry to the "Exclude from Scope" section <br />
+   ![scopeexample](https://user-images.githubusercontent.com/40414269/121574336-27b04a00-c9f4-11eb-9f41-0cd892d82108.png)
+  * For more information regarding Scope: https://portswigger.net/burp/documentation/desktop/tools/target/scope
+- Issue Definitions
+  * This tab lists the definitions of all issues that can be detected by Burp Scanner
+ 
+ ### Proxy
+ The Proxy tab is where you will monitor the traffic that Burp is intercepting. <br />
+ Here is a brief description of each tab you will find under Proxy: <br />
+ - Intercept
+  * From Burps website: "The Intercept tab is used to display and modify HTTP and WebSocket messages that pass between your browser and web servers."
+  * You can configure exactly what HTTP requests and responses are stalled for interception
+  * For more details on Intercept: https://portswigger.net/burp/documentation/desktop/tools/proxy/intercept
+ - HTTP History
+  * This tab shows the HTTP history captured by Burp and displays information about it. This information includes the Host, HTTP Method, URL file path & query string, a Params flag, flag indicating if request was modified by user, status code, byte length of request, MIME type, extension, etc.
+    ![httphistory](https://user-images.githubusercontent.com/40414269/121576280-37c92900-c9f6-11eb-97b9-97fd8a3b5e66.png)
+  * Left clicking on an entry will show the request and the response
+  * Right clicking allows you to do a variety of things to the request including:
+      * Adding to Scope
+      * Sending to Intruder, Repeater, Sequencer, Comparer
+      * Add comment to request
+      * Delete the request from the history
+      * etc
+        ![historyoptions](https://user-images.githubusercontent.com/40414269/121576861-d786b700-c9f6-11eb-88f4-620b26a1bf60.png)
+- WebSockets Hisory
+  * This tab works similarly to HTTP History
+- Options
+  * This tab allows you change the Proxy and Intercept settings
+  * For more detailed look at the options tab: https://portswigger.net/burp/documentation/desktop/tools/proxy/options
+
+### Intruder
+Burp defines the Intruder tool as a means "for automating customized attacks agains web applications. It is extremely powerful and configurable, and can be sued to perform a huge range of tasks, from simple brute-force guessing of web directories through to active exploitation of complex blind SQL injection vulnerabilities." There are many type of attacks that you can perform and ways to customize those attacks. This is a quick example of how you could potentially use the Intruder tool:
+- The first tab you will see is "Attack Target" and here you can specify the host and port of the target. If a request was sent over from the HTTP History section then this will already be filled in
+- Next is the positions tab and this is where you specify which paramters you want the Intruder to modify. The selected positions are indicated by a green highlight and being surrounded by this character: §
+![positions](https://user-images.githubusercontent.com/40414269/121578973-42d18880-c9f9-11eb-94e0-9aa096f7d6f5.png)
+  <br />Here you can also change your attack type. For more information on attack types check out the link at the end of this section.
+- After selecting the positions it is time to define the payload that will fill those positions. Here there are numerous payload types and for this example we will select the numbers payload <br />
+ ![payloadnumber](https://user-images.githubusercontent.com/40414269/121579565-d3a86400-c9f9-11eb-82e8-7764d8d50148.png)
+  <br /> In this payload type we can set the range of numbers to be inserted into the position(s), if those numbers will be inserted sequentially or random, whether or not to skip any numbers, send decimal or hex, max and min integer digits and/or fraction digits <br />
+  ![payloadoptions](https://user-images.githubusercontent.com/40414269/121580914-46660f00-c9fb-11eb-90c5-7e7de3be24bd.png) <br />
+  For this example we are going to send a payload that includes numbers 1-4 and doesn't skip any of the numbers (step = 1). If step = 2 then the payload would be: 1,3 because it does every other number (and if step = 3 then payload would be 1,4)
+- (Optional) You can add payload processing that will added to the payload before it is used. This could be encoding/decoding the payload entries, hash them, adding prefix/suffix, reverse entry, etc.
+- (Optional) You can add Payload URL-encoding to certain characters defined in this section
+
