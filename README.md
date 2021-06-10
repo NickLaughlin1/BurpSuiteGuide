@@ -87,25 +87,25 @@ The Target tab allows you access three different tabs: Site map, Scope, and Issu
  The Proxy tab is where you will monitor the traffic that Burp is intercepting. <br />
  Here is a brief description of each tab you will find under Proxy: <br />
  - Intercept
-  * From Burps website: "The Intercept tab is used to display and modify HTTP and WebSocket messages that pass between your browser and web servers."
-  * You can configure exactly what HTTP requests and responses are stalled for interception
-  * For more details on Intercept: https://portswigger.net/burp/documentation/desktop/tools/proxy/intercept
+   * From Burps website: "The Intercept tab is used to display and modify HTTP and WebSocket messages that pass between your browser and web servers."
+   * You can configure exactly what HTTP requests and responses are stalled for interception
+   * For more details on Intercept: https://portswigger.net/burp/documentation/desktop/tools/proxy/intercept
  - HTTP History
-  * This tab shows the HTTP history captured by Burp and displays information about it. This information includes the Host, HTTP Method, URL file path & query string, a Params flag, flag indicating if request was modified by user, status code, byte length of request, MIME type, extension, etc.
-    ![httphistory](https://user-images.githubusercontent.com/40414269/121576280-37c92900-c9f6-11eb-97b9-97fd8a3b5e66.png)
-  * Left clicking on an entry will show the request and the response
-  * Right clicking allows you to do a variety of things to the request including:
-      * Adding to Scope
-      * Sending to Intruder, Repeater, Sequencer, Comparer
-      * Add comment to request
-      * Delete the request from the history
-      * etc
+   * This tab shows the HTTP history captured by Burp and displays information about it. This information includes the Host, HTTP Method, URL file path & query string, a Params flag, flag indicating if request was modified by user, status code, byte length of request, MIME type, extension, etc.
+     ![httphistory](https://user-images.githubusercontent.com/40414269/121576280-37c92900-c9f6-11eb-97b9-97fd8a3b5e66.png)
+   * Left clicking on an entry will show the request and the response
+   * Right clicking allows you to do a variety of things to the request including:
+       * Adding to Scope
+       * Sending to Intruder, Repeater, Sequencer, Comparer
+       * Add comment to request
+       * Delete the request from the history
+       * etc
         ![historyoptions](https://user-images.githubusercontent.com/40414269/121576861-d786b700-c9f6-11eb-88f4-620b26a1bf60.png)
 - WebSockets Hisory
-  * This tab works similarly to HTTP History
+   * This tab works similarly to HTTP History
 - Options
-  * This tab allows you change the Proxy and Intercept settings
-  * For more information on the options tab visit: https://portswigger.net/burp/documentation/desktop/tools/proxy/options
+   * This tab allows you change the Proxy and Intercept settings
+   * For more information on the options tab visit: https://portswigger.net/burp/documentation/desktop/tools/proxy/options
 
 ### Intruder
 Burp defines the Intruder tool as a means "for automating customized attacks agains web applications. It is extremely powerful and configurable, and can be sued to perform a huge range of tasks, from simple brute-force guessing of web directories through to active exploitation of complex blind SQL injection vulnerabilities." There are many type of attacks that you can perform and ways to customize those attacks. This is a quick example of how you could potentially use the Intruder tool:
