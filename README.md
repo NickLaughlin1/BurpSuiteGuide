@@ -52,7 +52,6 @@ Now that a proxy is set up in your browser, you will need to install Burp's CA c
 - Open the "Privacy and Security" settings found on the left side and scroll down until you see the "Certificates" section
 - Once there click on "View Certificates" > "Import" and select the Burp CA certificate that you downloaded earlier
 ![import](https://user-images.githubusercontent.com/40414269/121567705-e5373f00-c9ec-11eb-9d50-be3bca978592.png)
-mport"
 - When prompted, make sure to check "This certificate can identify websites" is selected and click "OK"
 - Now close and restart FireFox and you should now start to see your traffic being recorded through Burp under the "Proxy" tab > "HTTP History"
 
